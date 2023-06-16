@@ -15,7 +15,7 @@ const UserProfile = () => {
   const [requestInProgress, setRequestInProgress] = useState(false);
   const navigate = useNavigate();
   const auth = useAuth();
-
+  // console.log('752753765365876', auth.user);
   useEffect(() => {
     const getUser = async () => {
       const response = await fetchUserProfile(userId);
@@ -44,8 +44,9 @@ const UserProfile = () => {
     // if (friends === undefined) {
     //   return false;
     // }
-    console.log('friends is: ', auth.user);
+    console.log('friends is: ', friends);
     const friendIds = friends.map((friend) => friend.to_user._id);
+    console.log('weyguwegfew', friendIds);
 
     const index = friendIds.indexOf(userId);
 
@@ -82,7 +83,7 @@ const UserProfile = () => {
     setRequestInProgress(true);
 
     const response = await addFriend(userId);
-
+    console.log('check *************', response);
     if (response.success) {
       const { friendship } = response.data;
 

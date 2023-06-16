@@ -42,7 +42,7 @@ const Signup = () => {
     }
 
     const response = await auth.signup(name, email, password, confirmPassword);
-
+    console.log('****************************Light', response);
     if (response.success) {
       navigate('/login');
       setSigningUp(false);
@@ -61,9 +61,9 @@ const Signup = () => {
     setSigningUp(false);
   };
 
-  if (auth.user) {
-    return <Navigate to="/" />;
-  }
+  // if (auth.user) {
+  //   return <Navigate to="/" />;
+  // }
 
   return (
     <form className={styles.loginForm} onSubmit={handleFormSubmit}>
